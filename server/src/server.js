@@ -20,6 +20,7 @@ const resolvers = mergeResolvers(fileLoader(path.join(__dirname, './graphql/reso
 import models from './models'
 
 // DATABASE CONNECTION
+mongoose.Promise = global.Promise
 mongoose
     .connect(`YOUR_MONGODB_CONNECTION_STRING`)
     .then(() => {
