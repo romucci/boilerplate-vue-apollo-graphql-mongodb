@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import apolloClient from '../apollo/apollo'
 
 Vue.use(Vuex)
 
