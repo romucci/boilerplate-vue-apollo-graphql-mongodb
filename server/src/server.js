@@ -12,12 +12,12 @@ import { mergeTypes, mergeResolvers, fileLoader } from 'merge-graphql-schemas'
 require('dotenv').config()
 const app = express();
 
+// MONGODB MODELS
+import models from './models'
+
 // GRAPHQL TYPES-RESOLVERS
 const typeDefs = mergeTypes(fileLoader(path.join(__dirname, './graphql/types')));
 const resolvers = mergeResolvers(fileLoader(path.join(__dirname, './graphql/resolvers')));
-
-// MONGODB MODELS
-import models from './models'
 
 // DATABASE CONNECTION
 mongoose.Promise = global.Promise

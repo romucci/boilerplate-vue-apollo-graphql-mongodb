@@ -13,7 +13,6 @@ const store = new Vuex.Store({
       console.log(apolloClient)
     }
   }
-
 })
 
 export default store
