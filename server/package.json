@@ -17,7 +17,8 @@
     "graphql-tools": "^2.24.0",
     "merge-graphql-schemas": "^1.5.1",
     "mongoose": "^5.0.14",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "spdy": "^3.4.7"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

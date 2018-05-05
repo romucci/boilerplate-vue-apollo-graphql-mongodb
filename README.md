@@ -1,4 +1,4 @@
-# Boilerplate Vue + Vuex + Vuetify + Apollo + GraphQL + Express + MongoDB
+# Boilerplate Vue + Vuex + Vuetify + Apollo + GraphQL + Express + MongoDB + HTTP/2
 
 Just a simple way of starting your projects with these marvelous technologies!
 
@@ -17,8 +17,8 @@ Then navigate towards the client folder and wait for dependencies to finish down
 - npm install
 ```
 
-You will also need to determine your URI for the Apollo Client, the MongoDB connection string
-and a .env file in the server folder
+You will also need to determine your URI for the Apollo Client, the MongoDB connection string, 
+your CERT and KEY files for HTTP/2 and the .env file in the server folder.
 
 
 ## Built With
