@@ -10,4 +10,13 @@ export default `
         getGreeting: String!
     }
     
+    type Subscription {
+        greetingSeen: String!
+    }
+    
+     schema {
+        query: Query
+        subscription : Subscription
+    }
+    
 `

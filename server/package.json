@@ -14,11 +14,13 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "graphql": "^0.13.2",
+    "graphql-subscriptions": "^0.5.8",
     "graphql-tools": "^2.24.0",
     "merge-graphql-schemas": "^1.5.1",
     "mongoose": "^5.0.14",
     "morgan": "^1.9.0",
-    "spdy": "^3.4.7"
+    "spdy": "^3.4.7",
+    "subscriptions-transport-ws": "^0.9.9"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

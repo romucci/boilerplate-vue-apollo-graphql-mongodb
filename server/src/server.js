@@ -6,9 +6,11 @@ import cors from 'cors'
 import path from 'path'
 import fs from 'fs'
 import spdy from 'spdy'
+import { mergeTypes, mergeResolvers, fileLoader } from 'merge-graphql-schemas'
+import { execute, subscribe } from 'graphql';
+import { SubscriptionServer } from 'subscriptions-transport-ws';
 import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
 import { makeExecutableSchema } from 'graphql-tools'
-import { mergeTypes, mergeResolvers, fileLoader } from 'merge-graphql-schemas'
 
 // CONFIG
 require('dotenv').config()
@@ -44,7 +46,10 @@ const schema = makeExecutableSchema({
 })
 
 app.use('/graphql', express.json(), graphqlExpress({ schema, context: models }))
-app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }))
+app.use('/graphiql', graphiqlExpress({
+    endpointURL: '/graphql',
+    subscriptionsEndpoint: `wss://localhost:${process.env.PORT}/subscriptions`
+}))
 
 // SETUP HTTP2 OPTIONS
 const options = {
@@ -54,9 +59,10 @@ const options = {
 }
 
 // CREATE SERVER WITH HTTP/2
-spdy
-    .createServer(options, app)
-    .listen(process.env.PORT, () => {
-        console.log(`Server started in this URL: https://localhost:${process.env.PORT}/graphiql`)
-    })
+const server =
+    spdy.createServer(options, app)
+        .listen(process.env.PORT, () => {
+            new SubscriptionServer({ execute, subscribe, schema }, { server, path: '/subscriptions' })
+            console.log(`Server started in this URL: https://localhost:${process.env.PORT}/graphiql`)}
+        )
 
