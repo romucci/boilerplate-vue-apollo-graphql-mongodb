@@ -4,6 +4,8 @@ import mongoose from 'mongoose'
 import morgan from 'morgan'
 import cors from 'cors'
 import path from 'path'
+import serveStatic from 'serve-static'
+import favicon from 'serve-favicon'
 import fs from 'fs'
 import spdy from 'spdy'
 import { mergeTypes, mergeResolvers, fileLoader } from 'merge-graphql-schemas'
@@ -15,6 +17,7 @@ import { makeExecutableSchema } from 'graphql-tools'
 // CONFIG
 require('dotenv').config()
 const app = express()
+const PORT = process.env.PORT
 
 // MONGODB MODELS
 import models from './models'
@@ -39,25 +42,35 @@ app.use(morgan('dev'))
 // CORS
 app.use(cors('*'))
 
+/*
+// SERVER CLIENT APP IN SERVER
+app.use(serveStatic(__dirname + "/dist"));
+app.use('*', serveStatic(__dirname + "/dist"))
+app.use(favicon(path.join(__dirname, 'dist', 'static', 'favicon.png')))
+*/
+
 // GRAPHQL SETUP
 const schema = makeExecutableSchema({
-    typeDefs,
-    resolvers
+  typeDefs,
+  resolvers
 })
 
 app.use('/graphql', express.json(), graphqlExpress({ schema, context: models }))
 app.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql',
-    subscriptionsEndpoint: `wss://localhost:${process.env.PORT}/subscriptions`
+    subscriptionsEndpoint: `localhost:8081/subscriptions`
 }))
 
+/*
 // SETUP HTTP2 OPTIONS
 const options = {
     key: fs.readFileSync('__YOUR_KEY_FILE__'),
     cert: fs.readFileSync('__YOUR_CERT_FILE__'),
     passphrase: '__YOUR_PASS_PHRASE__'
 }
+*/
 
+/*
 // CREATE SERVER WITH HTTP/2
 const server =
     spdy.createServer(options, app)
@@ -65,4 +78,10 @@ const server =
             new SubscriptionServer({ execute, subscribe, schema }, { server, path: '/subscriptions' })
             console.log(`Server started in this URL: https://localhost:${process.env.PORT}/graphiql`)}
         )
+
+*/
+
+app.listen(PORT, () => {
+  console.log(`Server started in port ${PORT}`)
+})
 

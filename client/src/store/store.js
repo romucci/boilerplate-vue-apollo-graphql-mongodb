@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { apolloClient } from '../apollo/apollo'
+import apolloClient from '../apollo/index'
 
 Vue.use(Vuex)
 

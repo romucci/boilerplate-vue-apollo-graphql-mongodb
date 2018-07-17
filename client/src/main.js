@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueApollo from 'vue-apollo'
 import Router from './router/router'
 import Vuetify from 'vuetify'
-import { apolloClient } from './apollo/apollo'
+import ApolloClient from './apollo'
 
 import App from './App'
 import store from './store/store'
@@ -13,7 +13,7 @@ Vue.use(VueApollo)
 Vue.use(Vuetify)
 
 const apolloProvider = new VueApollo({
-  defaultClient: apolloClient,
+  defaultClient: ApolloClient,
   defaultOptions: {
     $loadingKey: 'loading'
   }
