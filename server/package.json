@@ -19,6 +19,8 @@
     "merge-graphql-schemas": "^1.5.1",
     "mongoose": "^5.0.14",
     "morgan": "^1.9.0",
+    "serve-favicon": "^2.5.0",
+    "serve-static": "^1.13.2",
     "spdy": "^3.4.7",
     "subscriptions-transport-ws": "^0.9.9"
   },

@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { apolloClient } from '../apollo/apollo'
+import apolloClient from '../apollo'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    storeMessage: 'Hello from the Vuex Store!'
+    storeMessage: 'Hello from the Vuex Store!',
+    alert: false
   },
   actions: {
     apolloShow () {

@@ -1,4 +1,4 @@
-# Boilerplate Vue + Vuex + Vuetify + Apollo + GraphQL + Express + MongoDB + HTTP/2
+# Boilerplate Vue + Vuex + Vuetify + Apollo Client + GraphQL + Express + MongoDB + HTTP/2
 
 Just a simple way of starting your projects with these marvelous technologies!
 
@@ -17,9 +17,38 @@ Then navigate towards the client folder and wait for dependencies to finish down
 - npm install
 ```
 
-You will also need to determine your URI for the Apollo Client, the MongoDB connection string, 
-your CERT and KEY files for HTTP/2 and the .env file in the server folder.
+After that you will need to determine your the MongoDB connection string in server.js, 
+as well as the database user and password inside an .env file in the server folder. Furthermore you can setup 
+HTTP/2 with a CERT and KEY files (Use OpenSSL if you do not own a valid certificate).
 
+When everything is ready, you just perform:
+
+```
+- cd client
+- npm start
+```
+
+and 
+
+```
+- cd client
+- npm start
+```
+
+and VOALA, you are good to go!
+
+## Build
+
+If you need or want to build your client app and use just one server, you can perform
+
+```
+- cd client
+- npm run build
+```
+
+then you take the result folder and take it to the server-side src folder.
+
+You may also need to set your favicon!
 
 ## Built With
 * [Vue](https://github.com/vuejs/vue) - The web framework used
