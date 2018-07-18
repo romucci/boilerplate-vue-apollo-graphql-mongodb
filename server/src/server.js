@@ -4,10 +4,11 @@ import mongoose from 'mongoose'
 import morgan from 'morgan'
 import cors from 'cors'
 import path from 'path'
-import serveStatic from 'serve-static'
-import favicon from 'serve-favicon'
 import fs from 'fs'
 import spdy from 'spdy'
+import favicon from 'serve-favicon'
+import serveStatic from 'serve-static'
+import { createServer } from 'http'
 import { mergeTypes, mergeResolvers, fileLoader } from 'merge-graphql-schemas'
 import { execute, subscribe } from 'graphql';
 import { SubscriptionServer } from 'subscriptions-transport-ws';
@@ -42,12 +43,11 @@ app.use(morgan('dev'))
 // CORS
 app.use(cors('*'))
 
-/*
-// SERVER CLIENT APP IN SERVER
+// SERVE STATIC FILES
 app.use(serveStatic(__dirname + "/dist"));
 app.use('*', serveStatic(__dirname + "/dist"))
-app.use(favicon(path.join(__dirname, 'dist', 'static', 'favicon.png')))
-*/
+// app.use(favicon(path.join(__dirname, 'dist', 'static', 'favicon.png')))
+
 
 // GRAPHQL SETUP
 const schema = makeExecutableSchema({
@@ -58,7 +58,7 @@ const schema = makeExecutableSchema({
 app.use('/graphql', express.json(), graphqlExpress({ schema, context: models }))
 app.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql',
-    subscriptionsEndpoint: `localhost:8081/subscriptions`
+    subscriptionsEndpoint: `ws://localhost:8081/subscriptions`
 }))
 
 /*
@@ -78,10 +78,19 @@ const server =
             new SubscriptionServer({ execute, subscribe, schema }, { server, path: '/subscriptions' })
             console.log(`Server started in this URL: https://localhost:${process.env.PORT}/graphiql`)}
         )
-
 */
 
-app.listen(PORT, () => {
-  console.log(`Server started in port ${PORT}`)
+// CREATE SERVER WITH HTTP
+const ws = createServer(app);
+ws.listen(process.env.PORT, () => {
+  console.log(`Apollo Server is now running on http://localhost:${process.env.PORT}`)
+  // Set up the WebSocket for handling GraphQL subscriptions
+  new SubscriptionServer({
+    execute,
+    subscribe,
+    schema
+  }, {
+    server: ws,
+    path: '/subscriptions',
+  })
 })
-

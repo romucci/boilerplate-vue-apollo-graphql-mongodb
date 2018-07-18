@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    storeMessage: 'Hello from the Vuex Store!'
+    storeMessage: 'Hello from the Vuex Store!',
+    alert: false
   },
   actions: {
     apolloShow () {
