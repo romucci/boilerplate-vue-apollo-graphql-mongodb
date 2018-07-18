@@ -50,7 +50,6 @@ then you take the result folder and take it to the server-side src folder.
 
 You may also need to set your favicon!
 
->>>>>>> new
 ## Built With
 * [Vue](https://github.com/vuejs/vue) - The web framework used
 * [Vuex](https://github.com/vuejs/vuex) - State Management
