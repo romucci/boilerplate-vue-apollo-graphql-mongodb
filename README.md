@@ -20,7 +20,6 @@ Then navigate towards the client folder and wait for dependencies to finish down
 You will also need to determine your URI for the Apollo Client, the MongoDB connection string, 
 your CERT and KEY files for HTTP/2 and the .env file in the server folder.
 
-
 ## Built With
 * [Vue](https://github.com/vuejs/vue) - The web framework used
 * [Vuex](https://github.com/vuejs/vuex) - State Management
