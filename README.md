@@ -31,7 +31,7 @@ When everything is ready, you just perform:
 and 
 
 ```
-- cd client
+- cd server
 - npm start
 ```
 
@@ -47,6 +47,9 @@ If you need or want to build your client app and use just one server, you can pe
 ```
 
 then you take the result folder and take it to the server-side src folder.
+
+>>REMEMBER!
+You have to change the GraphQL uri in the Apollo Client and the WebSocket uri accordingly!
 
 You may also need to set your favicon!
 
@@ -69,7 +72,7 @@ You may also need to set your favicon!
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. It is free :D. Use it as you please.
 
 ## Acknowledgments
 
