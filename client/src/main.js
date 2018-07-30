@@ -1,11 +1,11 @@
 // IMPORTS
 import Vue from 'vue'
 import VueApollo from 'vue-apollo'
-import router from './router/index'
 import Vuetify from 'vuetify'
 import ApolloClient from './apollo'
-import App from './App'
 import store from './store'
+import router from './router'
+import App from './App'
 
 // SETUP PLUGINS
 Vue.config.productionTip = false
@@ -20,7 +20,6 @@ const apolloProvider = new VueApollo({
   }
 })
 
-/* eslint-disable no-new */
 new Vue({
   store,
   router,

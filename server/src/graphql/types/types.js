@@ -1,22 +1,22 @@
 export default `
     
     type Human {
-        name: String!
-        age: Int
-        country: String
+      name: String!
+      age: Int
+      country: String
     }
     
     type Query {
-        getGreeting: String!
+      getGreeting: String!
     }
     
     type Subscription {
-        greetingSeen: String!
+      greetingSeen: String!
     }
     
-     schema {
-        query: Query
-        subscription : Subscription
+    schema {
+      query: Query
+      subscription : Subscription
     }
     
 `

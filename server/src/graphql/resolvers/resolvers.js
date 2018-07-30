@@ -12,7 +12,7 @@ export default {
         getGreeting: (parent, args, models) => {
             const greeting = 'Hello from the server!'
             pubsub.publish('GREETING_SEEN', { greetingSeen: greeting })
-            return greeting
+            return 'Hello from the server!'
         }
     }
 

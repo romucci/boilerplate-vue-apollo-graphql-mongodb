@@ -3,14 +3,14 @@
 Just a simple way of starting your projects with these marvelous technologies!
 
 ### Installing
-Download or clone the repository and access the server folder
+Download or clone the repository and access the server folder.
 
 ```
 - cd server
 - npm install 
 ```
 
-Then navigate towards the client folder and wait for dependencies to finish downloading
+Then navigate towards the client folder and wait for dependencies to finish downloading.
 
 ```
 - cd client
@@ -18,10 +18,10 @@ Then navigate towards the client folder and wait for dependencies to finish down
 ```
 
 After that you will need to determine your the MongoDB connection string in server.js, 
-as well as the database user and password inside an .env file in the server folder. Furthermore you can setup 
-HTTP/2 with a CERT and KEY files (Use OpenSSL if you do not own a valid certificate).
+as well as the database user and password inside an .env file in the server folder. 
+Furthermore you can setup HTTP/2 with a CERT and KEY files (Use OpenSSL if you do not own a valid certificate).
 
-When everything is ready, you just perform:
+When everything is ready, you just navigate and start the server and client:
 
 ```
 - cd client
@@ -46,7 +46,7 @@ If you need or want to build your client app and use just one server, you can pe
 - npm run build
 ```
 
-then you take the result folder and take it to the server-side src folder.
+then you take the output folder and take it to the server-side src folder.
 
 >>REMEMBER!
 You have to change the GraphQL uri in the Apollo Client and the WebSocket uri accordingly!
@@ -54,16 +54,24 @@ You have to change the GraphQL uri in the Apollo Client and the WebSocket uri ac
 You may also need to set your favicon!
 
 ## Built With
-* [Vue](https://github.com/vuejs/vue) - The web framework used
-* [Vuex](https://github.com/vuejs/vuex) - State Management
-* [Vue-router](https://github.com/vuejs/vue-router) - Routing
+>> FRONT-END
+
+* [Vue](https://github.com/vuejs/vue) - Progressive Javascript Framework for UIs
+* [Vuex](https://github.com/vuejs/vuex) - Flux State Management
+* [Vue-router](https://github.com/vuejs/vue-router) - SPA Routing
 * [Vuetify](https://github.com/vuetifyjs/vuetify) - Material UI Design
-* [Vue-Apollo](https://github.com/Akryum/vue-apollo) - Integration for Apollo/GraphQL
+* [Vue-Apollo](https://github.com/Akryum/vue-apollo) - Integration for Vue/Apollo/GraphQL
+
+>> BACK-END
 * [GraphQL](http://graphql.org/) - A Query Language for APIs
 * [Express](http://expressjs.com/) - Fast minimalist web framework for NodeJS
-* [NodeJS](https://github.com/nodejs/node) - JavaScript run-time environment
+* [NodeJS](https://github.com/nodejs/node) - JavaScript runtime environment
+
+>> DATABASE
 * [Mongoose](http://mongoosejs.com/) - ORM for MongoDB
-* [MongoDB](http://www.mongodb.com) - No-SQL database 
+* [MongoDB](http://www.mongodb.com) - No-SQL database
+
+>> DEVTOOLS 
 * [Babel-watch](https://github.com/kmagiera/babel-watch) - Hot Reload for Babel-Node Apps
 
 ## Authors
@@ -72,7 +80,7 @@ You may also need to set your favicon!
 
 ## License
 
-This project is licensed under the MIT License. It is free :D. Use it as you please.
+This project is licensed under the [MIT](https://opensource.org/licenses/MIT) License. 
 
 ## Acknowledgments
 

@@ -1,7 +1,7 @@
 {
   "name": "boilerplate-vue-apollo-graphql-express-mongodb-client-side",
   "version": "1.0.0",
-  "description": "",
+  "description": "Client Side for Boilerplate",
   "author": "Lucas Otero <lucasdanielotero1992@gmail.com>",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -24,7 +24,7 @@
     "vue": "^2.5.2",
     "vue-apollo": "^3.0.0-beta.5",
     "vue-router": "^3.0.1",
-    "vuetify": "^1.1.5",
+    "vuetify": "^1.1.8",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
