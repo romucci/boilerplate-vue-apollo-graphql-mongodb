@@ -2,7 +2,7 @@
   "name": "boilerplate-vue-apollo-graphql-express-mongodb-server-side",
   "version": "1.0.0",
   "description": "",
-  "author": "Lucas Otero <lucasdanielotero1992@gmail.com>",
+  "author": "Lucas Otero",
   "scripts": {
     "start": "babel-watch src/server.js"
   },
